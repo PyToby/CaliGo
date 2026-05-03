@@ -1,2 +1,180 @@
 @import "tailwindcss";
-@plugin "daisyui";
+@plugin "daisyui" {
+      themes: caligo-light --default, caligo-dark --prefersdark;
+    }
+ 
+@plugin "daisyui/theme" {
+    name: "caligo-light";
+    default: true;
+    prefersdark: false;
+    color-scheme: light;
+
+    --color-base-100: oklch(98% 0.015 220);
+    --color-base-200: oklch(94% 0.025 220);
+    --color-base-300: oklch(89% 0.035 220);
+    --color-base-content: oklch(18% 0.04 240);
+    --color-primary: oklch(58% 0.22 230);
+    --color-primary-content: oklch(98% 0.01 230);
+    --color-secondary: oklch(72% 0.18 200);
+    --color-secondary-content: oklch(15% 0.04 200);
+    --color-accent: oklch(65% 0.28 190);
+    --color-accent-content: oklch(98% 0.01 190);
+    --color-neutral: oklch(28% 0.04 240);
+    --color-neutral-content: oklch(97% 0.01 240);
+    --color-info: oklch(70% 0.18 230);
+    --color-info-content: oklch(98% 0.01 230);
+    --color-success: oklch(64% 0.22 150);
+    --color-success-content: oklch(98% 0.01 150);
+    --color-warning: oklch(80% 0.22 80);
+    --color-warning-content: oklch(20% 0.05 80);
+    --color-error: oklch(63% 0.26 25);
+    --color-error-content: oklch(98% 0.01 25);
+    --radius-selector: 2rem;
+    --radius-field: 0.5rem;
+    --radius-box: 1rem;
+    --border: 1.5px;
+    --depth: 1;
+    --noise: 0;
+}
+
+@plugin "daisyui/theme" {
+    name: "caligo-dark";
+    prefersdark: true;
+    color-scheme: dark;
+
+    --color-base-100: oklch(16% 0.025 240);
+    --color-base-200: oklch(12% 0.02 240);
+    --color-base-300: oklch(10% 0.015 240);
+    --color-base-content: oklch(93% 0.02 220);
+    --color-primary: oklch(65% 0.24 225);
+    --color-primary-content: oklch(10% 0.02 225);
+    --color-secondary: oklch(55% 0.2 200);
+    --color-secondary-content: oklch(97% 0.01 200);
+    --color-accent: oklch(70% 0.28 185);
+    --color-accent-content: oklch(10% 0.02 185);
+    --color-neutral: oklch(88% 0.025 230);
+    --color-neutral-content: oklch(18% 0.03 240);
+    --color-info: oklch(65% 0.2 225);
+    --color-info-content: oklch(98% 0.01 225);
+    --color-success: oklch(62% 0.22 150);
+    --color-success-content: oklch(98% 0.01 150);
+    --color-warning: oklch(78% 0.2 80);
+    --color-warning-content: oklch(20% 0.05 80);
+    --color-error: oklch(65% 0.26 25);
+    --color-error-content: oklch(98% 0.01 25);
+    --radius-selector: 2rem;
+    --radius-field: 0.5rem;
+    --radius-box: 1rem;
+    --border: 1.5px;
+    --depth: 1;
+    --noise: 0;
+}
+
+body {
+      font-family: 'DM Sans', sans-serif;
+    }
+ 
+.display-font {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.04em;
+}
+
+/* Animated background blob */
+.hero-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.35;
+    animation: float 8s ease-in-out infinite;
+}
+@keyframes float {
+    0%, 100% { transform: translateY(0px) scale(1); }
+    50% { transform: translateY(-24px) scale(1.04); }
+}
+
+/* Staggered fade-in on load */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 0.7s ease forwards;
+}
+@keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.25s; }
+.delay-3 { animation-delay: 0.4s; }
+.delay-4 { animation-delay: 0.55s; }
+.delay-5 { animation-delay: 0.7s; }
+
+/* Stat ticker */
+.stat-bar {
+    transition: width 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Feature card hover */
+.feature-card {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.feature-card:hover {
+    transform: translateY(-6px);
+}
+
+/* Step connector line */
+.step-line::before {
+    content: '';
+    position: absolute;
+    top: 2rem;
+    left: calc(50% + 2.5rem);
+    width: calc(100% - 5rem);
+    height: 2px;
+    background: linear-gradient(90deg, oklch(58% 0.22 230 / 0.5), oklch(72% 0.18 200 / 0.5));
+}
+
+/* Scroll-triggered animation */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.scroll-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Noise texture overlay on hero */
+.noise-overlay {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events: none;
+}
+
+/* Theme toggle animation */
+#theme-toggle svg { transition: transform 0.4s ease; }
+#theme-toggle:hover svg { transform: rotate(30deg); }
+
+/* Pull quote stripe */
+.quote-stripe {
+    background: repeating-linear-gradient(
+    -45deg,
+    oklch(58% 0.22 230 / 0.06),
+    oklch(58% 0.22 230 / 0.06) 10px,
+    transparent 10px,
+    transparent 20px
+    );
+}
+
+/* Badge pulse */
+.badge-pulse::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: inherit;
+    border: 2px solid oklch(65% 0.24 225 / 0.5);
+    animation: pulse-ring 2s ease-out infinite;
+}
+@keyframes pulse-ring {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1.5); }
+}
