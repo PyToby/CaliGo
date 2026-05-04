@@ -1,0 +1,215 @@
+{% extends "base.html" %}
+{% block content %}
+<!-- ===== LOGIN / SIGNUP PAGE ===== -->
+<!-- Drop this inside your {% block content %} in a new template, e.g. website/templates/auth.html -->
+
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden py-16">
+
+  <!-- Background blobs (same as hero) -->
+  <div class="hero-blob w-[600px] h-[600px] bg-primary/25 -top-40 -left-40" style="animation-duration:9s;"></div>
+  <div class="hero-blob w-[400px] h-[400px] bg-secondary/20 top-20 right-10" style="animation-duration:11s; animation-delay:-3s;"></div>
+  <div class="hero-blob w-[300px] h-[300px] bg-accent/15 bottom-20 left-1/3" style="animation-duration:7s; animation-delay:-5s;"></div>
+  <div class="noise-overlay"></div>
+
+  <div class="relative z-10 w-full max-w-md mx-auto px-4">
+
+    <!-- Logo -->
+    <a href="/" class="flex items-center justify-center gap-2 mb-8 fade-in delay-1">
+      <div class="w-9 h-9 rounded-xl bg-primary flex items-center justify-center shadow-md">
+        <svg viewBox="0 0 24 24" class="w-5 h-5 fill-primary-content">
+          <path d="M13.5 3.5C13.5 4.881 12.381 6 11 6s-2.5-1.119-2.5-2.5S9.619 1 11 1s2.5 1.119 2.5 2.5zm5 5.5a2 2 0 100-4 2 2 0 000 4zm-13 0a2 2 0 100-4 2 2 0 000 4zm13.5 2.5c0 .552-.448 1-1 1h-1.5l-1.5 7h-2l-1.5-7H11l-1.5 7h-2l-1.5-7H4.5c-.552 0-1-.448-1-1V10c0-.552.448-1 1-1h15c.552 0 1 .448 1 1v1.5z"/>
+        </svg>
+      </div>
+      <span class="display-font text-3xl text-base-content tracking-widest">CALIGO</span>
+    </a>
+
+    <!-- Card -->
+    <div class="card bg-base-100 border border-base-300/60 shadow-xl fade-in delay-2">
+      <div class="card-body p-8">
+
+        <!-- Tab switcher -->
+        <div class="tabs tabs-box mb-8 w-full" id="auth-tabs">
+          <button
+            class="tab flex-1 font-bold text-base transition-all"
+            id="tab-login"
+            onclick="switchTab('login')"
+          >Log In</button>
+          <button
+            class="tab tab-active flex-1 font-bold text-base transition-all"
+            id="tab-signup"
+            onclick="switchTab('signup')"
+          >Sign Up</button>
+        </div>
+
+        <!-- ===== LOGIN FORM ===== -->
+        <form id="form-login" class="hidden flex-col gap-5" novalidate>
+
+          <div class="form-control gap-1.5">
+            <label class="label py-0" for="login-email">
+              <span class="label-text font-semibold text-sm">Email</span>
+            </label>
+            <input
+              id="login-email"
+              type="email"
+              placeholder="you@example.com"
+              class="input input-bordered w-full focus:input-primary"
+              autocomplete="email"
+            />
+          </div>
+
+          <div class="form-control gap-1.5">
+            <label class="label py-0" for="login-password">
+              <span class="label-text font-semibold text-sm">Password</span>
+            </label>
+            <div class="relative">
+              <input
+                id="login-password"
+                type="password"
+                placeholder="••••••••"
+                class="input input-bordered w-full focus:input-primary pr-12"
+                autocomplete="current-password"
+              />
+              <button type="button" class="absolute right-3 top-1/2 -translate-y-1/2 text-base-content/40 hover:text-base-content transition-colors" onclick="togglePassword('login-password', this)">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+              </button>
+            </div>
+            <div class="text-right mt-1">
+              <a href="#" class="text-xs text-primary hover:underline font-medium">Forgot password?</a>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary w-full font-bold mt-1">
+            Log In
+            <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+          </button>
+
+        </form>
+
+        <!-- ===== SIGNUP FORM ===== -->
+        <form id="form-signup" class="flex flex-col gap-5" novalidate>
+
+          <div class="form-control gap-1.5">
+            <label class="label py-0" for="signup-email">
+              <span class="label-text font-semibold text-sm">Email</span>
+            </label>
+            <input
+              id="signup-email"
+              type="email"
+              placeholder="you@example.com"
+              class="input input-bordered w-full focus:input-primary"
+              autocomplete="email"
+            />
+          </div>
+
+          <div class="form-control gap-1.5">
+            <label class="label py-0" for="signup-password">
+              <span class="label-text font-semibold text-sm">Password</span>
+            </label>
+            <div class="relative">
+              <input
+                id="signup-password"
+                type="password"
+                placeholder="••••••••"
+                class="input input-bordered w-full focus:input-primary pr-12"
+                autocomplete="new-password"
+              />
+              <button type="button" class="absolute right-3 top-1/2 -translate-y-1/2 text-base-content/40 hover:text-base-content transition-colors" onclick="togglePassword('signup-password', this)">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="form-control gap-1.5">
+            <label class="label py-0" for="signup-confirm">
+              <span class="label-text font-semibold text-sm">Confirm Password</span>
+            </label>
+            <div class="relative">
+              <input
+                id="signup-confirm"
+                type="password"
+                placeholder="••••••••"
+                class="input input-bordered w-full focus:input-primary pr-12"
+                autocomplete="new-password"
+              />
+              <button type="button" class="absolute right-3 top-1/2 -translate-y-1/2 text-base-content/40 hover:text-base-content transition-colors" onclick="togglePassword('signup-confirm', this)">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary w-full font-bold mt-1">
+            Create Account
+            <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+          </button>
+
+        </form>
+
+        <!-- Divider -->
+        <div class="divider text-base-content/30 text-xs font-semibold tracking-widest mt-1">OR</div>
+
+        <!-- Google button -->
+        <a href="/auth/google" class="btn btn-outline w-full font-semibold gap-3 hover:bg-base-200 border-base-300">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+          </svg>
+          Continue with Google
+        </a>
+
+        <!-- Switch mode hint -->
+        <p class="text-center text-sm text-base-content/50 mt-4" id="switch-hint">
+          Already have an account?
+          <button onclick="switchTab('login')" class="text-primary font-semibold hover:underline">Log in</button>
+        </p>
+
+      </div>
+    </div>
+
+    <!-- Back to landing -->
+    <p class="text-center text-sm text-base-content/40 mt-6 fade-in delay-3">
+      <a href="/" class="hover:text-primary transition-colors">← Back to home</a>
+    </p>
+
+  </div>
+</section>
+
+<script>
+  function switchTab(mode) {
+    const loginForm   = document.getElementById('form-login');
+    const signupForm  = document.getElementById('form-signup');
+    const tabLogin    = document.getElementById('tab-login');
+    const tabSignup   = document.getElementById('tab-signup');
+    const hint        = document.getElementById('switch-hint');
+
+    if (mode === 'login') {
+      loginForm.classList.remove('hidden');
+      loginForm.classList.add('flex');
+      signupForm.classList.add('hidden');
+      signupForm.classList.remove('flex');
+      tabLogin.classList.add('tab-active');
+      tabSignup.classList.remove('tab-active');
+      hint.innerHTML = `Don't have an account? <button onclick="switchTab('signup')" class="text-primary font-semibold hover:underline">Sign up free</button>`;
+    } else {
+      signupForm.classList.remove('hidden');
+      signupForm.classList.add('flex');
+      loginForm.classList.add('hidden');
+      loginForm.classList.remove('flex');
+      tabSignup.classList.add('tab-active');
+      tabLogin.classList.remove('tab-active');
+      hint.innerHTML = `Already have an account? <button onclick="switchTab('login')" class="text-primary font-semibold hover:underline">Log in</button>`;
+    }
+  }
+
+  function togglePassword(inputId, btn) {
+    const input = document.getElementById(inputId);
+    const isHidden = input.type === 'password';
+    input.type = isHidden ? 'text' : 'password';
+    btn.innerHTML = isHidden
+      ? `<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.477 0-8.268-2.943-9.542-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"/></svg>`
+      : `<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>`;
+  }
+</script>
+
+{% endblock %}

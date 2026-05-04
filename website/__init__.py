@@ -2,6 +2,10 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 import os, logging
 from flask_login import LoginManager
+from .models import db, User
+from dotenv import load_dotenv
+
+load_dotenv()
 
 login_manager = LoginManager()
 
@@ -16,7 +20,7 @@ def create_app():
 
     app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'dev-secret-key')
     
-    '''database_url = os.environ.get('DATABASE_URL', 'sqlite:///dev.db')
+    database_url = os.environ.get('DATABASE_URL', 'sqlite:///dev.db')
     if database_url.startswith('postgres://'):
         database_url = database_url.replace('postgres://', 'postgresql://', 1)
 
@@ -30,16 +34,16 @@ def create_app():
 
     db.init_app(app)
     login_manager.init_app(app)
-    login_manager.login_view = 'auth.login'  # redirect here if not logged in'''
+    login_manager.login_view = 'auth.login'  # redirect here if not logged in
 
-    '''@login_manager.user_loader
+    @login_manager.user_loader
     def load_user(user_id):
-        return User.query.get(int(user_id))'''
+        return User.query.get(int(user_id))
 
     from .views import view
     app.register_blueprint(view, url_prefix='/')
 
-    '''with app.app_context():
-        db.create_all()'''
+    with app.app_context():
+        db.create_all()
     logger.info("app created")
     return app
