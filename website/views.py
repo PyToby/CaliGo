@@ -6,7 +6,7 @@ logger = logging.getLogger(__name__)
 
 @view.route('/')
 def home():
-    return render_template("base.html")
+    return render_template("index.html")
 
 @view.route('/login')
 def login():
