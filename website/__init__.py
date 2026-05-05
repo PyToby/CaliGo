@@ -42,6 +42,8 @@ def create_app():
 
     from .views import view
     app.register_blueprint(view, url_prefix='/')
+    from .auth import auth
+    app.register_blueprint(auth, url_prefix="/auth")
 
     with app.app_context():
         db.create_all()

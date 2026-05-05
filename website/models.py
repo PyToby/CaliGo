@@ -24,5 +24,6 @@ class User(UserMixin, db.Model):
     def remove(self):
         db.session.delete(self)
 
-
+    def get_id(self):           # tell Flask-Login to use user_id
+        return str(self.user_id)
     

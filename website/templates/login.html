@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
-<!-- ===== LOGIN / SIGNUP PAGE ===== -->
-<!-- Drop this inside your {% block content %} in a new template, e.g. website/templates/auth.html -->
+
+
 
 <section class="relative min-h-screen flex items-center justify-center overflow-hidden py-16">
 
@@ -11,6 +11,7 @@
   <div class="hero-blob w-[300px] h-[300px] bg-accent/15 bottom-20 left-1/3" style="animation-duration:7s; animation-delay:-5s;"></div>
   <div class="noise-overlay"></div>
 
+  
   <div class="relative z-10 w-full max-w-md mx-auto px-4">
 
     <!-- Logo -->
@@ -40,9 +41,13 @@
             onclick="switchTab('signup')"
           >Sign Up</button>
         </div>
-
+        {% if error %}
+          <div role="alert" class="alert alert-error alert-soft mb-5 text-sm">
+            {{ error }}
+          </div>
+        {% endif %}
         <!-- ===== LOGIN FORM ===== -->
-        <form id="form-login" class="hidden flex-col gap-5" novalidate>
+        <form id="form-login" class="hidden flex-col gap-5" method="POST" action="/auth/login" novalidate>
 
           <div class="form-control gap-1.5">
             <label class="label py-0" for="login-email">
@@ -52,6 +57,7 @@
               id="login-email"
               type="email"
               placeholder="you@example.com"
+              name="loginemail"
               class="input input-bordered w-full focus:input-primary"
               autocomplete="email"
             />
@@ -66,6 +72,7 @@
                 id="login-password"
                 type="password"
                 placeholder="••••••••"
+                name="loginpassword"
                 class="input input-bordered w-full focus:input-primary pr-12"
                 autocomplete="current-password"
               />
@@ -84,9 +91,9 @@
           </button>
 
         </form>
-
+        
         <!-- ===== SIGNUP FORM ===== -->
-        <form id="form-signup" class="flex flex-col gap-5" novalidate>
+        <form id="form-signup" class="flex flex-col gap-5" method="POST" action="/auth/signup" novalidate>
 
           <div class="form-control gap-1.5">
             <label class="label py-0" for="signup-email">
@@ -95,6 +102,7 @@
             <input
               id="signup-email"
               type="email"
+              name="signupemail"
               placeholder="you@example.com"
               class="input input-bordered w-full focus:input-primary"
               autocomplete="email"
@@ -109,6 +117,7 @@
               <input
                 id="signup-password"
                 type="password"
+                name="signuppassword1"
                 placeholder="••••••••"
                 class="input input-bordered w-full focus:input-primary pr-12"
                 autocomplete="new-password"
@@ -128,6 +137,7 @@
                 id="signup-confirm"
                 type="password"
                 placeholder="••••••••"
+                name="signuppassword2"
                 class="input input-bordered w-full focus:input-primary pr-12"
                 autocomplete="new-password"
               />
