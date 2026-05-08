@@ -8,3 +8,6 @@ logger = logging.getLogger(__name__)
 def home():
     return render_template("index.html")
 
+@view.route('/app')
+def app():
+    return render_template("theapp.html")

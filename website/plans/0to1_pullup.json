@@ -1,0 +1,373 @@
+{
+  "plan_name": "0 to pullup",
+  "weeks": [
+    {
+      "week": 1,
+      "days": [
+        {
+          "day": 1,
+          "is_rest": false,
+          "exercises": [
+            {
+              "exercise": "scapular pullups (on a bar)",
+              "sets": 4,
+              "reps": 6,
+              "rir": "1",
+              "rest_time": "120s"
+            }
+          ]
+        },
+        {
+          "day": 2,
+          "is_rest": false,
+          "exercises": [
+            {
+              "exercise": "rows (bar at chest height) but only lowering phase (eccentric)",
+              "sets": 3,
+              "reps": 5,
+              "rir": "1",
+              "rest_time": "180s"
+            }
+          ]
+        },
+        {
+          "day": 3,
+          "is_rest": false,
+          "exercises": [
+            {
+              "exercise": "rows (bar at chest height)",
+              "sets": 3,
+              "reps": 2,
+              "rir": "1",
+              "rest_time": "180s"
+            }
+          ]
+        },
+        {
+          "day": 4,
+          "is_rest": true,
+          "exercises": []
+        },
+        {
+          "day": 5,
+          "is_rest": false,
+          "exercises": [
+            {
+              "exercise": "rows (bar at chest height)",
+              "sets": 3,
+              "reps": 4,
+              "rir": "1",
+              "rest_time": "180s"
+            }
+          ]
+        },
+        {
+          "day": 6,
+          "is_rest": true,
+          "exercises": []
+        },
+        {
+          "day": 7,
+          "is_rest": false,
+          "exercises": [
+            {
+              "exercise": "rows (bar at chest height)",
+              "sets": 3,
+              "reps": 6,
+              "rir": "1",
+              "rest_time": "180s"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 2,
+      "days": [
+        {
+          "day": 1,
+          "is_rest": false,
+          "exercises": [
+            {
+              "exercise": "rows (bar at chest height)",
+              "sets": 3,
+              "reps": 7,
+              "rir": "1",
+              "rest_time": "180s"
+            }
+          ]
+        },
+        {
+          "day": 2,
+          "is_rest": true,
+          "exercises": []
+        },
+        {
+          "day": 3,
+          "is_rest": false,
+          "exercises": [
+            {
+              "exercise": "rows (bar at hip height)",
+              "sets": 3,
+              "reps": 2,
+              "rir": "1",
+              "rest_time": "180s"
+            }
+          ]
+        },
+        {
+          "day": 4,
+          "is_rest": true,
+          "exercises": []
+        },
+        {
+          "day": 5,
+          "is_rest": false,
+          "exercises": [
+            {
+              "exercise": "rows (bar at hip height)",
+              "sets": 3,
+              "reps": 3,
+              "rir": "1",
+              "rest_time": "180s"
+            }
+          ]
+        },
+        {
+          "day": 6,
+          "is_rest": true,
+          "exercises": []
+        },
+        {
+          "day": 7,
+          "is_rest": false,
+          "exercises": [
+            {
+              "exercise": "rows (bar at hip height)",
+              "sets": 3,
+              "reps": 4,
+              "rir": "1",
+              "rest_time": "180s"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 3,
+      "days": [
+        {
+          "day": 1,
+          "is_rest": false,
+          "exercises": [
+            {
+              "exercise": "rows (bar at hip height)",
+              "sets": 3,
+              "reps": 5,
+              "rir": "1",
+              "rest_time": "180s"
+            }
+          ]
+        },
+        {
+          "day": 2,
+          "is_rest": true,
+          "exercises": []
+        },
+        {
+          "day": 3,
+          "is_rest": false,
+          "exercises": [
+            {
+              "exercise": "rows (bar at hip height)",
+              "sets": 3,
+              "reps": 6,
+              "rir": "1",
+              "rest_time": "180s"
+            }
+          ]
+        },
+        {
+          "day": 4,
+          "is_rest": true,
+          "exercises": []
+        },
+        {
+          "day": 5,
+          "is_rest": false,
+          "exercises": [
+            {
+              "exercise": "rows (bar at hip height)",
+              "sets": 3,
+              "reps": 7,
+              "rir": "1",
+              "rest_time": "180s"
+            }
+          ]
+        },
+        {
+          "day": 6,
+          "is_rest": true,
+          "exercises": []
+        },
+        {
+          "day": 7,
+          "is_rest": false,
+          "exercises": [
+            {
+              "exercise": "pullup negative",
+              "sets": 2,
+              "reps": 1,
+              "rir": "0-1",
+              "rest_time": "180s"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 4,
+      "days": [
+        {
+          "day": 1,
+          "is_rest": false,
+          "exercises": [
+            {
+              "exercise": "pullup negative",
+              "sets": 3,
+              "reps": 1,
+              "rir": "0-1",
+              "rest_time": "180s"
+            }
+          ]
+        },
+        {
+          "day": 2,
+          "is_rest": true,
+          "exercises": []
+        },
+        {
+          "day": 3,
+          "is_rest": false,
+          "exercises": [
+            {
+              "exercise": "pullup negative",
+              "sets": 3,
+              "reps": 2,
+              "rir": "0-1",
+              "rest_time": "180s"
+            }
+          ]
+        },
+        {
+          "day": 4,
+          "is_rest": true,
+          "exercises": []
+        },
+        {
+          "day": 5,
+          "is_rest": false,
+          "exercises": [
+            {
+              "exercise": "pullup negatives",
+              "sets": 3,
+              "reps": 3,
+              "rir": "1",
+              "rest_time": "180s"
+            }
+          ]
+        },
+        {
+          "day": 6,
+          "is_rest": true,
+          "exercises": []
+        },
+        {
+          "day": 7,
+          "is_rest": false,
+          "exercises": [
+            {
+              "exercise": "pullup negatives",
+              "sets": 3,
+              "reps": 4,
+              "rir": "1",
+              "rest_time": "180s"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 5,
+      "days": [
+        {
+          "day": 1,
+          "is_rest": false,
+          "exercises": [
+            {
+              "exercise": "pullup negative",
+              "sets": 3,
+              "reps": 4,
+              "rir": "0-1",
+              "rest_time": "180s"
+            }
+          ]
+        },
+        {
+          "day": 2,
+          "is_rest": true,
+          "exercises": []
+        },
+        {
+          "day": 3,
+          "is_rest": false,
+          "exercises": [
+            {
+              "exercise": "pullup negative",
+              "sets": 3,
+              "reps": 5,
+              "rir": "0-1",
+              "rest_time": "180s"
+            }
+          ]
+        },
+        {
+          "day": 4,
+          "is_rest": true,
+          "exercises": []
+        },
+        {
+          "day": 5,
+          "is_rest": false,
+          "exercises": [
+            {
+              "exercise": "pullup negatives",
+              "sets": 3,
+              "reps": 6,
+              "rir": "1",
+              "rest_time": "180s"
+            }
+          ]
+        },
+        {
+          "day": 6,
+          "is_rest": true,
+          "exercises": []
+        },
+        {
+          "day": 7,
+          "is_rest": false,
+          "exercises": [
+            {
+              "exercise": "pullup",
+              "sets": 1,
+              "reps": 1,
+              "rir": "0",
+              "rest_time": "240s"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
