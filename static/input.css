@@ -283,3 +283,27 @@ body {
   @media (min-width: 768px) {
     #mobile-banner { display: none !important; }
   }
+
+  /* Level / goal / freq selection cards are handled inline via JS classList,
+   but these ensure the base state renders correctly without flicker */
+  .level-card .card,
+  .goal-card .goal-inner,
+  .freq-card .freq-inner {
+    @apply transition-all duration-150;
+  }
+
+  /* Survey skill chips */
+  .skill-chip {
+    cursor: pointer;
+  }
+
+  .chip-inner {
+    @apply px-4 py-2.5 rounded-xl border-2 border-base-300/60 bg-base-200/50 
+          text-sm font-semibold text-base-content/70 text-center
+          hover:border-primary/60 hover:bg-primary/5 hover:text-base-content
+          transition-all duration-150 select-none;
+  }
+
+  .chip-active {
+    @apply border-primary bg-primary/10 text-primary;
+  }

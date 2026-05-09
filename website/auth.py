@@ -49,6 +49,9 @@ def login():
             return render_template('login.html', error="Invalid email or password")
     return render_template('login.html')
 
-@auth.route('/survey')
-def survey():
+@auth.route('/onboarding', methods=['GET', 'POST'])
+def onboarding():
+    if request.method == 'POST':
+        print('success')
+        return render_template("/auth/signup")
     return render_template("survey.html")

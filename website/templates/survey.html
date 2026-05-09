@@ -178,11 +178,14 @@
           <p class="text-base-content/55 mb-6">Check everything you can do <span class="font-semibold text-base-content">right now</span> with decent form. No ego — be real.</p>
 
           <div class="space-y-5">
+            <label class="skill-chip"><input type="checkbox" name="skills" value="None" class="hidden"/><div class="chip-inner">None of these</div></label>
+            <br>
             <!-- Foundation -->
             <div>
               <div class="text-xs font-bold text-base-content/35 uppercase tracking-widest mb-3 flex items-center gap-2">
                 <span class="w-4 h-0.5 bg-success inline-block"></span> Foundation
               </div>
+              
               <div class="grid grid-cols-2 gap-2">
                 <label class="skill-chip"><input type="checkbox" name="skills" value="plank_60s" class="hidden"/><div class="chip-inner">Plank 60s</div></label>
                 <label class="skill-chip"><input type="checkbox" name="skills" value="hollow_body" class="hidden"/><div class="chip-inner">Hollow Body</div></label>
@@ -241,7 +244,6 @@
               <label class="goal-card cursor-pointer">
                 <input type="radio" name="goal" value="strength" class="hidden"/>
                 <div class="goal-inner card border-2 border-base-300/60 bg-base-200/50 hover:border-primary/60 hover:bg-primary/5 transition-all p-4 rounded-2xl text-center">
-                  <div class="text-2xl mb-2">💪</div>
                   <div class="font-bold text-sm">Strength</div>
                   <div class="text-xs text-base-content/45 mt-0.5">Raw power</div>
                 </div>
@@ -249,7 +251,6 @@
               <label class="goal-card cursor-pointer">
                 <input type="radio" name="goal" value="skills" class="hidden"/>
                 <div class="goal-inner card border-2 border-base-300/60 bg-base-200/50 hover:border-primary/60 hover:bg-primary/5 transition-all p-4 rounded-2xl text-center">
-                  <div class="text-2xl mb-2">🤸</div>
                   <div class="font-bold text-sm">Skills</div>
                   <div class="text-xs text-base-content/45 mt-0.5">Freestyle moves</div>
                 </div>
@@ -257,7 +258,7 @@
               <label class="goal-card cursor-pointer">
                 <input type="radio" name="goal" value="aesthetics" class="hidden"/>
                 <div class="goal-inner card border-2 border-base-300/60 bg-base-200/50 hover:border-primary/60 hover:bg-primary/5 transition-all p-4 rounded-2xl text-center">
-                  <div class="text-2xl mb-2">🔥</div>
+                  
                   <div class="font-bold text-sm">Aesthetics</div>
                   <div class="text-xs text-base-content/45 mt-0.5">Look good</div>
                 </div>
@@ -265,7 +266,6 @@
               <label class="goal-card cursor-pointer">
                 <input type="radio" name="goal" value="all" class="hidden"/>
                 <div class="goal-inner card border-2 border-base-300/60 bg-base-200/50 hover:border-primary/60 hover:bg-primary/5 transition-all p-4 rounded-2xl text-center">
-                  <div class="text-2xl mb-2">⚡</div>
                   <div class="font-bold text-sm">All of it</div>
                   <div class="text-xs text-base-content/45 mt-0.5">The full package</div>
                 </div>
@@ -273,23 +273,11 @@
             </div>
           </div>
 
-          <!-- Frequency -->
-          <div>
-            <div class="text-sm font-bold text-base-content/50 uppercase tracking-widest mb-4">Days per week</div>
-            <div class="flex gap-2 flex-wrap">
-              <label class="freq-card cursor-pointer" data-days="2"><input type="radio" name="frequency" value="2" class="hidden"/><div class="freq-inner w-14 h-14 rounded-2xl border-2 border-base-300/60 bg-base-200/50 hover:border-primary/60 hover:bg-primary/5 transition-all flex items-center justify-center font-bold text-lg">2</div></label>
-              <label class="freq-card cursor-pointer" data-days="3"><input type="radio" name="frequency" value="3" class="hidden"/><div class="freq-inner w-14 h-14 rounded-2xl border-2 border-base-300/60 bg-base-200/50 hover:border-primary/60 hover:bg-primary/5 transition-all flex items-center justify-center font-bold text-lg">3</div></label>
-              <label class="freq-card cursor-pointer" data-days="4"><input type="radio" name="frequency" value="4" class="hidden"/><div class="freq-inner w-14 h-14 rounded-2xl border-2 border-base-300/60 bg-base-200/50 hover:border-primary/60 hover:bg-primary/5 transition-all flex items-center justify-center font-bold text-lg">4</div></label>
-              <label class="freq-card cursor-pointer" data-days="5"><input type="radio" name="frequency" value="5" class="hidden"/><div class="freq-inner w-14 h-14 rounded-2xl border-2 border-base-300/60 bg-base-200/50 hover:border-primary/60 hover:bg-primary/5 transition-all flex items-center justify-center font-bold text-lg">5</div></label>
-              <label class="freq-card cursor-pointer" data-days="6"><input type="radio" name="frequency" value="6" class="hidden"/><div class="freq-inner w-14 h-14 rounded-2xl border-2 border-base-300/60 bg-base-200/50 hover:border-primary/60 hover:bg-primary/5 transition-all flex items-center justify-center font-bold text-lg">6</div></label>
-            </div>
-            <p class="text-xs text-base-content/40 mt-3">3–4 days is the sweet spot for most athletes.</p>
-          </div>
 
           <div class="mt-8 flex justify-between">
             <button class="btn btn-ghost btn-lg font-semibold back-btn" data-back="4">← Back</button>
-            <a href="{{ url_for('auth.signup') }}" class="btn btn-primary btn-lg font-bold px-10 next-btn" data-next="6" id="step5-next" enabled>
-              Next <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            <a href="{{ url_for('auth.signup') }}" class="btn btn-primary btn-lg font-bold px-10 next-btn" data-next="6" id="step5-next" disabled>
+              Next <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" method="POST" action="/auth/onboarding"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
             </a>
           </div>
         </div>
