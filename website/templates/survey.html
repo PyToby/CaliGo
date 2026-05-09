@@ -1,0 +1,429 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="relative min-h-screen flex items-center justify-center py-16 overflow-hidden">
+
+  <!-- Background blobs matching hero style -->
+  <div class="hero-blob w-[500px] h-[500px] bg-primary/20 -top-32 -right-32" style="animation-duration:10s;"></div>
+  <div class="hero-blob w-[350px] h-[350px] bg-secondary/15 bottom-10 -left-20" style="animation-duration:12s; animation-delay:-4s;"></div>
+  <div class="noise-overlay"></div>
+
+  <div class="relative z-10 w-full max-w-2xl mx-auto px-4">
+
+    <!-- Progress bar -->
+    <div class="mb-8">
+      <div class="flex justify-between items-center mb-2">
+        <span class="text-xs font-semibold text-base-content/40 uppercase tracking-widest">Your Profile</span>
+        <span class="text-xs font-semibold text-primary" id="step-label">Step 1 of 6</span>
+      </div>
+      <div class="w-full h-1.5 bg-base-300/60 rounded-full overflow-hidden">
+        <div id="progress-bar" class="h-full bg-primary rounded-full transition-all duration-500 ease-out" style="width: 16.6%"></div>
+      </div>
+    </div>
+
+    <!-- Card shell -->
+    <div class="card bg-base-100 border border-base-300/60 shadow-2xl">
+      <div class="card-body p-8 md:p-10">
+
+        <!-- ======= STEP 1: Level ======= -->
+        <div class="survey-step" id="step-1">
+          <div class="badge badge-primary badge-outline badge-sm font-semibold mb-4">STEP 1 / 6</div>
+          <h2 class="display-font text-4xl md:text-5xl text-base-content leading-none mb-2">YOUR LEVEL</h2>
+          <p class="text-base-content/55 mb-8">Be honest — this shapes everything. You can always change it later.</p>
+
+          <div class="flex flex-col gap-4" id="level-options">
+
+            <label class="level-card cursor-pointer">
+              <input type="radio" name="level" value="beginner" class="hidden" />
+              <div class="card border-2 border-base-300/60 bg-base-200/50 hover:border-primary/60 hover:bg-primary/5 transition-all p-5 rounded-2xl">
+                <div class="flex items-start gap-4">
+                  <div class="w-10 h-10 rounded-xl bg-success/20 flex items-center justify-center shrink-0 mt-0.5">
+                    <svg class="w-5 h-5 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
+                  </div>
+                  <div>
+                    <div class="flex items-center gap-2 mb-1">
+                      <span class="font-bold text-base-content text-lg">Beginner</span>
+                      <span class="badge badge-success badge-soft badge-sm">New to calisthenics</span>
+                    </div>
+                    <p class="text-base-content/55 text-sm leading-relaxed"><strong class="text-base-content/70">You need:</strong> No experience required — just the will to start.<br/><strong class="text-base-content/70">You'll learn:</strong> Push-up, pull-up, squat foundations, body tension & hollow body.</p>
+                  </div>
+                </div>
+              </div>
+            </label>
+
+            <label class="level-card cursor-pointer">
+              <input type="radio" name="level" value="intermediate" class="hidden" />
+              <div class="card border-2 border-base-300/60 bg-base-200/50 hover:border-primary/60 hover:bg-primary/5 transition-all p-5 rounded-2xl">
+                <div class="flex items-start gap-4">
+                  <div class="w-10 h-10 rounded-xl bg-warning/20 flex items-center justify-center shrink-0 mt-0.5">
+                    <svg class="w-5 h-5 text-warning" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                  </div>
+                  <div>
+                    <div class="flex items-center gap-2 mb-1">
+                      <span class="font-bold text-base-content text-lg">Intermediate</span>
+                      <span class="badge badge-warning badge-soft badge-sm">Some foundation</span>
+                    </div>
+                    <p class="text-base-content/55 text-sm leading-relaxed"><strong class="text-base-content/70">You need:</strong> 10+ push-ups, 3+ pull-ups, basic body control.<br/><strong class="text-base-content/70">You'll learn:</strong> Dips, Australian rows, L-sit, wall handstand, ring work.</p>
+                  </div>
+                </div>
+              </div>
+            </label>
+
+            <label class="level-card cursor-pointer">
+              <input type="radio" name="level" value="advanced" class="hidden" />
+              <div class="card border-2 border-base-300/60 bg-base-200/50 hover:border-primary/60 hover:bg-primary/5 transition-all p-5 rounded-2xl">
+                <div class="flex items-start gap-4">
+                  <div class="w-10 h-10 rounded-xl bg-error/20 flex items-center justify-center shrink-0 mt-0.5">
+                    <svg class="w-5 h-5 text-error" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+                  </div>
+                  <div>
+                    <div class="flex items-center gap-2 mb-1">
+                      <span class="font-bold text-base-content text-lg">Advanced</span>
+                      <span class="badge badge-error badge-soft badge-sm">Strong base</span>
+                    </div>
+                    <p class="text-base-content/55 text-sm leading-relaxed"><strong class="text-base-content/70">You need:</strong> 20+ push-ups, 10+ pull-ups, comfortable with dips & dips.<br/><strong class="text-base-content/70">You'll learn:</strong> Muscle-up, front lever, planche, freestanding handstand.</p>
+                  </div>
+                </div>
+              </div>
+            </label>
+
+          </div>
+
+          <div class="mt-8 flex justify-end">
+            <button class="btn btn-primary btn-lg font-bold px-10 next-btn" data-next="2" disabled>
+              Next <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- ======= STEP 2: Push-ups ======= -->
+        <div class="survey-step hidden" id="step-2">
+          <div class="badge badge-primary badge-outline badge-sm font-semibold mb-4">STEP 2 / 6</div>
+          <h2 class="display-font text-4xl md:text-5xl text-base-content leading-none mb-2">MAX PUSH-UPS</h2>
+          <p class="text-base-content/55 mb-8">How many clean push-ups can you do in one go? Full range, chest to floor.</p>
+
+          <div class="flex flex-col items-center gap-6">
+            <div class="relative flex items-center justify-center">
+              <div class="w-36 h-36 rounded-full border-4 border-primary/30 flex items-center justify-center bg-primary/5">
+                <span id="pushup-display" class="display-font text-6xl text-primary leading-none">0</span>
+              </div>
+            </div>
+            <input type="range" id="pushup-slider" name="pushups" min="0" max="100" value="0"
+              class="range range-primary w-full max-w-md" />
+            <div class="flex justify-between w-full max-w-md text-xs text-base-content/40 font-medium px-1">
+              <span>0</span><span>25</span><span>50</span><span>75</span><span>100+</span>
+            </div>
+            <div class="flex gap-3 flex-wrap justify-center">
+              <button class="btn btn-sm btn-outline quick-set" data-target="pushup-slider" data-val="0">0</button>
+              <button class="btn btn-sm btn-outline quick-set" data-target="pushup-slider" data-val="5">5</button>
+              <button class="btn btn-sm btn-outline quick-set" data-target="pushup-slider" data-val="10">10</button>
+              <button class="btn btn-sm btn-outline quick-set" data-target="pushup-slider" data-val="20">20</button>
+              <button class="btn btn-sm btn-outline quick-set" data-target="pushup-slider" data-val="40">40</button>
+              <button class="btn btn-sm btn-outline quick-set" data-target="pushup-slider" data-val="60">60+</button>
+            </div>
+          </div>
+
+          <div class="mt-8 flex justify-between">
+            <button class="btn btn-ghost btn-lg font-semibold back-btn" data-back="1">← Back</button>
+            <button class="btn btn-primary btn-lg font-bold px-10 next-btn" data-next="3">
+              Next <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- ======= STEP 3: Pull-ups & Dips ======= -->
+        <div class="survey-step hidden" id="step-3">
+          <div class="badge badge-primary badge-outline badge-sm font-semibold mb-4">STEP 3 / 6</div>
+          <h2 class="display-font text-4xl md:text-5xl text-base-content leading-none mb-2">PULLING & DIPS</h2>
+          <p class="text-base-content/55 mb-8">Max reps in one clean set. Dead hang start for pull-ups, full depth for dips.</p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Pull-ups -->
+            <div class="card bg-base-200/60 border border-base-300/60 p-5 rounded-2xl">
+              <div class="text-sm font-bold text-base-content/50 uppercase tracking-widest mb-3">Pull-ups</div>
+              <div class="flex items-center justify-center mb-4">
+                <div class="w-20 h-20 rounded-full border-2 border-primary/30 flex items-center justify-center bg-primary/5">
+                  <span id="pullup-display" class="display-font text-4xl text-primary leading-none">0</span>
+                </div>
+              </div>
+              <input type="range" id="pullup-slider" name="pullups" min="0" max="40" value="0" class="range range-primary range-sm w-full" />
+              <div class="flex justify-between text-xs text-base-content/35 mt-1 px-0.5"><span>0</span><span>10</span><span>20</span><span>30</span><span>40+</span></div>
+            </div>
+
+            <!-- Dips -->
+            <div class="card bg-base-200/60 border border-base-300/60 p-5 rounded-2xl">
+              <div class="text-sm font-bold text-base-content/50 uppercase tracking-widest mb-3">Dips</div>
+              <div class="flex items-center justify-center mb-4">
+                <div class="w-20 h-20 rounded-full border-2 border-secondary/30 flex items-center justify-center bg-secondary/5">
+                  <span id="dip-display" class="display-font text-4xl text-secondary leading-none">0</span>
+                </div>
+              </div>
+              <input type="range" id="dip-slider" name="dips" min="0" max="40" value="0" class="range range-secondary range-sm w-full" />
+              <div class="flex justify-between text-xs text-base-content/35 mt-1 px-0.5"><span>0</span><span>10</span><span>20</span><span>30</span><span>40+</span></div>
+            </div>
+          </div>
+
+          <div class="mt-8 flex justify-between">
+            <button class="btn btn-ghost btn-lg font-semibold back-btn" data-back="2">← Back</button>
+            <button class="btn btn-primary btn-lg font-bold px-10 next-btn" data-next="4">
+              Next <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- ======= STEP 4: Skills ======= -->
+        <div class="survey-step hidden" id="step-4">
+          <div class="badge badge-primary badge-outline badge-sm font-semibold mb-4">STEP 4 / 6</div>
+          <h2 class="display-font text-4xl md:text-5xl text-base-content leading-none mb-2">YOUR SKILLS</h2>
+          <p class="text-base-content/55 mb-6">Check everything you can do <span class="font-semibold text-base-content">right now</span> with decent form. No ego — be real.</p>
+
+          <div class="space-y-5">
+            <!-- Foundation -->
+            <div>
+              <div class="text-xs font-bold text-base-content/35 uppercase tracking-widest mb-3 flex items-center gap-2">
+                <span class="w-4 h-0.5 bg-success inline-block"></span> Foundation
+              </div>
+              <div class="grid grid-cols-2 gap-2">
+                <label class="skill-chip"><input type="checkbox" name="skills" value="plank_60s" class="hidden"/><div class="chip-inner">Plank 60s</div></label>
+                <label class="skill-chip"><input type="checkbox" name="skills" value="hollow_body" class="hidden"/><div class="chip-inner">Hollow Body</div></label>
+                <label class="skill-chip"><input type="checkbox" name="skills" value="dead_hang_30s" class="hidden"/><div class="chip-inner">Dead Hang 30s</div></label>
+                <label class="skill-chip"><input type="checkbox" name="skills" value="arch_body" class="hidden"/><div class="chip-inner">Arch Body</div></label>
+              </div>
+            </div>
+            <!-- Intermediate -->
+            <div>
+              <div class="text-xs font-bold text-base-content/35 uppercase tracking-widest mb-3 flex items-center gap-2">
+                <span class="w-4 h-0.5 bg-warning inline-block"></span> Intermediate
+              </div>
+              <div class="grid grid-cols-2 gap-2">
+                <label class="skill-chip"><input type="checkbox" name="skills" value="wall_handstand" class="hidden"/><div class="chip-inner">Wall Handstand</div></label>
+                <label class="skill-chip"><input type="checkbox" name="skills" value="l_sit" class="hidden"/><div class="chip-inner">L-Sit (bars)</div></label>
+                <label class="skill-chip"><input type="checkbox" name="skills" value="skin_the_cat" class="hidden"/><div class="chip-inner">Skin the Cat</div></label>
+                <label class="skill-chip"><input type="checkbox" name="skills" value="pistol_squat" class="hidden"/><div class="chip-inner">Pistol Squat</div></label>
+                <label class="skill-chip"><input type="checkbox" name="skills" value="ring_support" class="hidden"/><div class="chip-inner">Ring Support Hold</div></label>
+                <label class="skill-chip"><input type="checkbox" name="skills" value="dragon_flag" class="hidden"/><div class="chip-inner">Dragon Flag</div></label>
+              </div>
+            </div>
+            <!-- Advanced -->
+            <div>
+              <div class="text-xs font-bold text-base-content/35 uppercase tracking-widest mb-3 flex items-center gap-2">
+                <span class="w-4 h-0.5 bg-error inline-block"></span> Advanced
+              </div>
+              <div class="grid grid-cols-2 gap-2">
+                <label class="skill-chip"><input type="checkbox" name="skills" value="freestanding_hs" class="hidden"/><div class="chip-inner">Freestanding HS</div></label>
+                <label class="skill-chip"><input type="checkbox" name="skills" value="muscle_up" class="hidden"/><div class="chip-inner">Muscle-Up</div></label>
+                <label class="skill-chip"><input type="checkbox" name="skills" value="front_lever" class="hidden"/><div class="chip-inner">Front Lever</div></label>
+                <label class="skill-chip"><input type="checkbox" name="skills" value="back_lever" class="hidden"/><div class="chip-inner">Back Lever</div></label>
+                <label class="skill-chip"><input type="checkbox" name="skills" value="planche" class="hidden"/><div class="chip-inner">Planche (any)</div></label>
+                <label class="skill-chip"><input type="checkbox" name="skills" value="human_flag" class="hidden"/><div class="chip-inner">Human Flag</div></label>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 flex justify-between">
+            <button class="btn btn-ghost btn-lg font-semibold back-btn" data-back="3">← Back</button>
+            <button class="btn btn-primary btn-lg font-bold px-10 next-btn" data-next="5">
+              Next <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- ======= STEP 5: Goals & Frequency ======= -->
+        <div class="survey-step hidden" id="step-5">
+          <div class="badge badge-primary badge-outline badge-sm font-semibold mb-4">STEP 5 / 6</div>
+          <h2 class="display-font text-4xl md:text-5xl text-base-content leading-none mb-2">TRAINING PLAN</h2>
+          <p class="text-base-content/55 mb-8">Tell us your goal and how often you can train. We'll plan around your life.</p>
+
+          <!-- Goal -->
+          <div class="mb-8">
+            <div class="text-sm font-bold text-base-content/50 uppercase tracking-widest mb-4">Primary Goal</div>
+            <div class="grid grid-cols-2 gap-3" id="goal-options">
+              <label class="goal-card cursor-pointer">
+                <input type="radio" name="goal" value="strength" class="hidden"/>
+                <div class="goal-inner card border-2 border-base-300/60 bg-base-200/50 hover:border-primary/60 hover:bg-primary/5 transition-all p-4 rounded-2xl text-center">
+                  <div class="text-2xl mb-2">💪</div>
+                  <div class="font-bold text-sm">Strength</div>
+                  <div class="text-xs text-base-content/45 mt-0.5">Raw power</div>
+                </div>
+              </label>
+              <label class="goal-card cursor-pointer">
+                <input type="radio" name="goal" value="skills" class="hidden"/>
+                <div class="goal-inner card border-2 border-base-300/60 bg-base-200/50 hover:border-primary/60 hover:bg-primary/5 transition-all p-4 rounded-2xl text-center">
+                  <div class="text-2xl mb-2">🤸</div>
+                  <div class="font-bold text-sm">Skills</div>
+                  <div class="text-xs text-base-content/45 mt-0.5">Freestyle moves</div>
+                </div>
+              </label>
+              <label class="goal-card cursor-pointer">
+                <input type="radio" name="goal" value="aesthetics" class="hidden"/>
+                <div class="goal-inner card border-2 border-base-300/60 bg-base-200/50 hover:border-primary/60 hover:bg-primary/5 transition-all p-4 rounded-2xl text-center">
+                  <div class="text-2xl mb-2">🔥</div>
+                  <div class="font-bold text-sm">Aesthetics</div>
+                  <div class="text-xs text-base-content/45 mt-0.5">Look good</div>
+                </div>
+              </label>
+              <label class="goal-card cursor-pointer">
+                <input type="radio" name="goal" value="all" class="hidden"/>
+                <div class="goal-inner card border-2 border-base-300/60 bg-base-200/50 hover:border-primary/60 hover:bg-primary/5 transition-all p-4 rounded-2xl text-center">
+                  <div class="text-2xl mb-2">⚡</div>
+                  <div class="font-bold text-sm">All of it</div>
+                  <div class="text-xs text-base-content/45 mt-0.5">The full package</div>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Frequency -->
+          <div>
+            <div class="text-sm font-bold text-base-content/50 uppercase tracking-widest mb-4">Days per week</div>
+            <div class="flex gap-2 flex-wrap">
+              <label class="freq-card cursor-pointer" data-days="2"><input type="radio" name="frequency" value="2" class="hidden"/><div class="freq-inner w-14 h-14 rounded-2xl border-2 border-base-300/60 bg-base-200/50 hover:border-primary/60 hover:bg-primary/5 transition-all flex items-center justify-center font-bold text-lg">2</div></label>
+              <label class="freq-card cursor-pointer" data-days="3"><input type="radio" name="frequency" value="3" class="hidden"/><div class="freq-inner w-14 h-14 rounded-2xl border-2 border-base-300/60 bg-base-200/50 hover:border-primary/60 hover:bg-primary/5 transition-all flex items-center justify-center font-bold text-lg">3</div></label>
+              <label class="freq-card cursor-pointer" data-days="4"><input type="radio" name="frequency" value="4" class="hidden"/><div class="freq-inner w-14 h-14 rounded-2xl border-2 border-base-300/60 bg-base-200/50 hover:border-primary/60 hover:bg-primary/5 transition-all flex items-center justify-center font-bold text-lg">4</div></label>
+              <label class="freq-card cursor-pointer" data-days="5"><input type="radio" name="frequency" value="5" class="hidden"/><div class="freq-inner w-14 h-14 rounded-2xl border-2 border-base-300/60 bg-base-200/50 hover:border-primary/60 hover:bg-primary/5 transition-all flex items-center justify-center font-bold text-lg">5</div></label>
+              <label class="freq-card cursor-pointer" data-days="6"><input type="radio" name="frequency" value="6" class="hidden"/><div class="freq-inner w-14 h-14 rounded-2xl border-2 border-base-300/60 bg-base-200/50 hover:border-primary/60 hover:bg-primary/5 transition-all flex items-center justify-center font-bold text-lg">6</div></label>
+            </div>
+            <p class="text-xs text-base-content/40 mt-3">3–4 days is the sweet spot for most athletes.</p>
+          </div>
+
+          <div class="mt-8 flex justify-between">
+            <button class="btn btn-ghost btn-lg font-semibold back-btn" data-back="4">← Back</button>
+            <a href="{{ url_for('auth.signup') }}" class="btn btn-primary btn-lg font-bold px-10 next-btn" data-next="6" id="step5-next" enabled>
+              Next <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // ── State ─────────────────────────────────────────────
+  let currentStep = 1;
+  const totalSteps = 6;
+  const stepProgress = [16.6, 33.3, 50, 66.6, 83.3, 100];
+
+  // ── Step navigation ───────────────────────────────────
+  function goToStep(n) {
+    document.getElementById(`step-${currentStep}`).classList.add('hidden');
+    currentStep = n;
+    document.getElementById(`step-${currentStep}`).classList.remove('hidden');
+    document.getElementById('step-label').textContent = `Step ${n} of ${totalSteps}`;
+    document.getElementById('progress-bar').style.width = stepProgress[n - 1] + '%';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  document.querySelectorAll('.next-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const next = parseInt(btn.dataset.next);
+      goToStep(next);
+    });
+  });
+
+  document.querySelectorAll('.back-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const back = parseInt(btn.dataset.back);
+      goToStep(back);
+    });
+  });
+
+  // ── Step 1: Level selection ───────────────────────────
+  document.querySelectorAll('.level-card input').forEach(input => {
+    input.addEventListener('change', () => {
+      // Reset all cards
+      document.querySelectorAll('.level-card .card').forEach(c => {
+        c.classList.remove('border-primary', 'bg-primary/10', 'shadow-lg');
+        c.classList.add('border-base-300/60', 'bg-base-200/50');
+      });
+      // Highlight selected
+      const card = input.closest('.level-card').querySelector('.card');
+      card.classList.add('border-primary', 'bg-primary/10', 'shadow-lg');
+      card.classList.remove('border-base-300/60', 'bg-base-200/50');
+      // Enable next
+      document.querySelector('[data-next="2"]').removeAttribute('disabled');
+    });
+  });
+
+  // ── Step 2: Push-up slider ────────────────────────────
+  const pushupSlider = document.getElementById('pushup-slider');
+  const pushupDisplay = document.getElementById('pushup-display');
+  pushupSlider.addEventListener('input', () => {
+    pushupDisplay.textContent = pushupSlider.value == 100 ? '100+' : pushupSlider.value;
+  });
+
+  document.querySelectorAll('.quick-set').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const slider = document.getElementById(btn.dataset.target);
+      slider.value = btn.dataset.val;
+      slider.dispatchEvent(new Event('input'));
+    });
+  });
+
+  // ── Step 3: Pull-up & Dip sliders ────────────────────
+  const pullupSlider = document.getElementById('pullup-slider');
+  const pullupDisplay = document.getElementById('pullup-display');
+  pullupSlider.addEventListener('input', () => {
+    pullupDisplay.textContent = pullupSlider.value == 40 ? '40+' : pullupSlider.value;
+  });
+  const dipSlider = document.getElementById('dip-slider');
+  const dipDisplay = document.getElementById('dip-display');
+  dipSlider.addEventListener('input', () => {
+    dipDisplay.textContent = dipSlider.value == 40 ? '40+' : dipSlider.value;
+  });
+
+  // ── Step 4: Skill chips ───────────────────────────────
+  document.querySelectorAll('.skill-chip input').forEach(cb => {
+    cb.addEventListener('change', () => {
+      const chip = cb.closest('.skill-chip').querySelector('.chip-inner');
+      if (cb.checked) {
+        chip.classList.add('chip-active');
+      } else {
+        chip.classList.remove('chip-active');
+      }
+    });
+  });
+
+  // ── Step 5: Goal & Frequency ──────────────────────────
+  let goalSelected = false;
+  let freqSelected = false;
+
+  function checkStep5() {
+    document.getElementById('step5-next').disabled = !(goalSelected && freqSelected);
+  }
+
+  document.querySelectorAll('.goal-card input').forEach(input => {
+    input.addEventListener('change', () => {
+      document.querySelectorAll('.goal-card .goal-inner').forEach(c => {
+        c.classList.remove('border-primary', 'bg-primary/10');
+        c.classList.add('border-base-300/60', 'bg-base-200/50');
+      });
+      const inner = input.closest('.goal-card').querySelector('.goal-inner');
+      inner.classList.add('border-primary', 'bg-primary/10');
+      inner.classList.remove('border-base-300/60', 'bg-base-200/50');
+      goalSelected = true;
+      checkStep5();
+    });
+  });
+
+  document.querySelectorAll('.freq-card input').forEach(input => {
+    input.addEventListener('change', () => {
+      document.querySelectorAll('.freq-card .freq-inner').forEach(c => {
+        c.classList.remove('border-primary', 'bg-primary/10', 'text-primary');
+        c.classList.add('border-base-300/60', 'bg-base-200/50');
+      });
+      const inner = input.closest('.freq-card').querySelector('.freq-inner');
+      inner.classList.add('border-primary', 'bg-primary/10', 'text-primary');
+      inner.classList.remove('border-base-300/60', 'bg-base-200/50');
+      freqSelected = true;
+      checkStep5();
+    });
+  });
+
+  
+</script>
+
+{% endblock %} 

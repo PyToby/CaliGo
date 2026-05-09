@@ -18,18 +18,19 @@
   <!-- ===== LEFT SIDEBAR ===== -->
   <aside id="left-sidebar"
          style="width:216px; min-width:216px;"
-         class="flex flex-col bg-base-100 border-r border-base-300/60 z-50 overflow-hidden shrink-0">
+         class="flex flex-col bg-base-100 z-50 overflow-hidden shrink-0">
 
     <!-- Logo -->
-    <div class="flex items-center gap-2.5 px-4 py-5 border-b border-base-300/40">
+     <a href="{{ url_for('view.app') }}">
+    <div class="flex items-center gap-2.5 px-4 py-5 ">
       <div class="w-9 h-9 shrink-0 rounded-xl bg-primary flex items-center justify-center">
         <svg viewBox="0 0 24 24" class="w-5 h-5 fill-primary-content">
-          <path d="M13.5 3.5C13.5 4.881 12.381 6 11 6s-2.5-1.119-2.5-2.5S9.619 1 11 1s2.5 1.119 2.5 2.5zm5 5.5a2 2 0 100-4 2 2 0 000 4zm-13 0a2 2 0 100-4 2 2 0 000 4zm13.5 2.5c0 .552-.448 1-1 1h-1.5l-1.5 7h-2l-1.5-7H11l-1.5 7h-2l-1.5-7H4.5c-.552 0-1-.448-1-1V10c0-.552.448-1 1-1h15c.552 0 1 .448 1 1v1.5z"/>
+          <!--<path d="M13.5 3.5C13.5 4.881 12.381 6 11 6s-2.5-1.119-2.5-2.5S9.619 1 11 1s2.5 1.119 2.5 2.5zm5 5.5a2 2 0 100-4 2 2 0 000 4zm-13 0a2 2 0 100-4 2 2 0 000 4zm13.5 2.5c0 .552-.448 1-1 1h-1.5l-1.5 7h-2l-1.5-7H11l-1.5 7h-2l-1.5-7H4.5c-.552 0-1-.448-1-1V10c0-.552.448-1 1-1h15c.552 0 1 .448 1 1v1.5z"/>-->
         </svg>
       </div>
       <span class="display-font sidebar-text text-2xl text-base-content tracking-widest">CALIGO</span>
     </div>
-
+    </a>
     <!-- Nav links -->
     <nav class="flex-1 flex flex-col gap-1 p-3 overflow-hidden">
       <a href="#" class="sidebar-nav-item active">
@@ -143,8 +144,7 @@
             <!-- Day stack with path line -->
             <div class="relative flex flex-col gap-0 pl-8 sm:pl-10">
               <!-- vertical spine line -->
-              <div class="absolute left-[14px] sm:left-[22px] top-[22px] bottom-[22px] w-0.5 bg-primary/25 rounded-full z-0"></div>
-
+              <!--<div class="absolute left-[14px] sm:left-[22px] top-[26px] bottom-[26px] w-0.5 bg-primary/25 rounded-full z-0"></div>-->
               <!-- Day 1 -->
               <div class="path-day-btn relative flex items-center gap-4 py-2 cursor-pointer group" onclick="openDay(1,'Push-Up Intro','Week 1')">
                 <div class="path-node absolute -left-8 sm:-left-10 w-9 h-9 rounded-full bg-primary border-2 border-primary flex items-center justify-center shrink-0 shadow-md z-20 transition-transform group-hover:scale-110">
@@ -155,7 +155,7 @@
                     <div class="text-[10px] font-bold text-primary uppercase tracking-widest mb-0.5">Day 1</div>
                     <div class="font-semibold text-sm text-base-content">Push-Up Intro</div>
                   </div>
-                  <svg class="w-4 h-4 text-base-content/25 group-hover:text-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                  <svg class="w-4 h-4 text-base-content/50 group-hover:text-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
                 </div>
               </div>
 
@@ -169,7 +169,7 @@
                     <div class="text-[10px] font-bold text-primary uppercase tracking-widest mb-0.5">Day 2</div>
                     <div class="font-semibold text-sm text-base-content">Squat Basics</div>
                   </div>
-                  <svg class="w-4 h-4 text-base-content/25 group-hover:text-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                  <svg class="w-4 h-4 text-base-content/50 group-hover:text-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
                 </div>
               </div>
 
@@ -183,7 +183,7 @@
                     <div class="text-[10px] font-bold text-primary uppercase tracking-widest mb-0.5">Day 3</div>
                     <div class="font-semibold text-sm text-base-content">Core Plank</div>
                   </div>
-                  <svg class="w-4 h-4 text-base-content/25 group-hover:text-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                  <svg class="w-4 h-4 text-base-content/50 group-hover:text-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
                 </div>
               </div>
 
@@ -197,7 +197,7 @@
                     <div class="text-[10px] font-bold text-primary uppercase tracking-widest mb-0.5">Day 4</div>
                     <div class="font-semibold text-sm text-base-content">Hip Mobility</div>
                   </div>
-                  <svg class="w-4 h-4 text-base-content/25 group-hover:text-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                  <svg class="w-4 h-4 text-base-content/50 group-hover:text-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
                 </div>
               </div>
 
@@ -211,7 +211,7 @@
                     <div class="text-[10px] font-bold text-primary uppercase tracking-widest mb-0.5">Day 5</div>
                     <div class="font-semibold text-sm text-base-content">Pull Intro</div>
                   </div>
-                  <svg class="w-4 h-4 text-base-content/25 group-hover:text-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                  <svg class="w-4 h-4 text-base-content/50 group-hover:text-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
                 </div>
               </div>
 
@@ -225,7 +225,7 @@
                     <div class="text-[10px] font-bold text-primary uppercase tracking-widest mb-0.5">Day 6</div>
                     <div class="font-semibold text-sm text-base-content">Active Rest</div>
                   </div>
-                  <svg class="w-4 h-4 text-base-content/25 group-hover:text-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                  <svg class="w-4 h-4 text-base-content/50 group-hover:text-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
                 </div>
               </div>
 
@@ -272,7 +272,7 @@
 
             <!-- Day stack -->
             <div class="relative flex flex-col gap-0 pl-8 sm:pl-10">
-              <div class="absolute left-[14px] sm:left-[22px] top-[22px] bottom-[22px] w-0.5 z-0 rounded-full" style="background:repeating-linear-gradient(to bottom, oklch(52% 0.22 255 / 0.35) 0px, oklch(52% 0.22 255 / 0.35) 8px, transparent 8px, transparent 14px);"></div>
+              <!--<div class="absolute left-[14px] sm:left-[22px] top-[26px] bottom-[26px] w-0.5 z-0 rounded-full" style="background:repeating-linear-gradient(...)"></div>-->
 
               <!-- Day 8 completed -->
               <div class="path-day-btn relative flex items-center gap-4 py-2 cursor-pointer group" onclick="openDay(8,'Push Pyramid','Week 2')">
@@ -284,7 +284,7 @@
                     <div class="text-[10px] font-bold text-primary uppercase tracking-widest mb-0.5">Day 8</div>
                     <div class="font-semibold text-sm text-base-content">Push Pyramid</div>
                   </div>
-                  <svg class="w-4 h-4 text-base-content/25 group-hover:text-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                  <svg class="w-4 h-4 text-base-content/50 group-hover:text-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
                 </div>
               </div>
 
@@ -298,7 +298,7 @@
                     <div class="text-[10px] font-bold text-primary uppercase tracking-widest mb-0.5">Day 9</div>
                     <div class="font-semibold text-sm text-base-content">Tricep Dips</div>
                   </div>
-                  <svg class="w-4 h-4 text-base-content/25 group-hover:text-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                  <svg class="w-4 h-4 text-base-content/50 group-hover:text-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
                 </div>
               </div>
 
@@ -389,10 +389,10 @@
               <div class="px-6 py-5 flex items-center justify-between gap-4">
                 <div class="flex-1 min-w-0">
                   <div class="flex items-center gap-2.5 mb-1.5">
-                    <span class="display-font text-base-content/35 text-sm tracking-[0.12em]">WEEK 3</span>
-                    <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-base-content/10 text-base-content/40 tracking-wide">🔒 LOCKED</span>
+                    <span class="display-font text-base-content/80 text-sm tracking-[0.12em]">WEEK 3</span>
+                    <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-base-content/10 text-base-content/80 tracking-wide">LOCKED</span>
                   </div>
-                  <div class="display-font text-base-content/40 text-[clamp(1.5rem,4vw,2.2rem)] leading-none tracking-wide mb-1">Pull Power Begins</div>
+                  <div class="display-font text-base-content/80 text-[clamp(1.5rem,4vw,2.2rem)] leading-none tracking-wide mb-1">Pull Power Begins</div>
                   <p class="text-base-content/30 text-xs font-medium leading-relaxed">Inverted rows, scapular control &amp; hanging strength</p>
                 </div>
                 <div class="shrink-0 text-right hidden sm:block">
@@ -404,40 +404,92 @@
 
             <!-- Abbreviated locked days -->
             <div class="relative flex flex-col gap-0 pl-8 sm:pl-10">
-              <div class="absolute left-[14px] sm:left-[22px] top-[22px] bottom-[22px] w-0.5 rounded-full bg-base-content/10 z-0"></div>
+            <!--<div class="absolute left-[14px] sm:left-[22px] top-[26px] bottom-[26px] w-0.5 rounded-full bg-base-content/10 z-0"></div>-->
 
-              <div class="relative flex items-center gap-4 py-2">
-                <div class="absolute -left-8 sm:-left-10 w-9 h-9 rounded-full bg-base-300 border-2 border-base-300 flex items-center justify-center z-20"><span class="display-font text-sm text-base-content/20">15</span></div>
-                <div class="flex-1 bg-base-200 border border-base-300/30 rounded-xl px-4 py-3"><div class="text-[10px] font-bold text-base-content/25 uppercase tracking-widest mb-0.5">Day 15</div><div class="font-semibold text-sm text-base-content/30">Inverted Row Intro</div></div>
+              <div class="path-day-btn relative flex items-center gap-4 py-2 cursor-pointer group" onclick="openDay(13,'Rest & Reflect','Week 2')">
+                <div class="path-node absolute -left-8 sm:-left-10 w-9 h-9 rounded-full bg-base-300 border-2 border-base-300 flex items-center justify-center shrink-0 z-20">
+                  <span class="display-font text-base-content/30 text-sm leading-none">15</span>
+                </div>
+                <div class="flex-1 bg-base-200 border border-base-300/40 rounded-xl px-4 py-3 flex items-center justify-between">
+                  <div>
+                    <div class="text-[10px] font-bold text-base-content/30 uppercase tracking-widest mb-0.5">Day 15</div>
+                    <div class="font-semibold text-sm text-base-content/40">Rest &amp; Reflect</div>
+                  </div>
+                  <svg class="w-4 h-4 text-base-content/20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                </div>
               </div>
-              <div class="relative flex items-center gap-4 py-2">
-                <div class="absolute -left-8 sm:-left-10 w-9 h-9 rounded-full bg-base-300 border-2 border-base-300 flex items-center justify-center z-20"><span class="display-font text-sm text-base-content/20">16</span></div>
-                <div class="flex-1 bg-base-200 border border-base-300/30 rounded-xl px-4 py-3"><div class="text-[10px] font-bold text-base-content/25 uppercase tracking-widest mb-0.5">Day 16</div><div class="font-semibold text-sm text-base-content/30">Scapular Pull</div></div>
+              <div class="path-day-btn relative flex items-center gap-4 py-2 cursor-pointer group" onclick="openDay(13,'Rest & Reflect','Week 2')">
+                <div class="path-node absolute -left-8 sm:-left-10 w-9 h-9 rounded-full bg-base-300 border-2 border-base-300 flex items-center justify-center shrink-0 z-20">
+                  <span class="display-font text-base-content/30 text-sm leading-none">16</span>
+                </div>
+                <div class="flex-1 bg-base-200 border border-base-300/40 rounded-xl px-4 py-3 flex items-center justify-between">
+                  <div>
+                    <div class="text-[10px] font-bold text-base-content/30 uppercase tracking-widest mb-0.5">Day 16</div>
+                    <div class="font-semibold text-sm text-base-content/40">Rest &amp; Reflect</div>
+                  </div>
+                  <svg class="w-4 h-4 text-base-content/20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                </div>
               </div>
-              <div class="relative flex items-center gap-4 py-2">
-                <div class="absolute -left-8 sm:-left-10 w-9 h-9 rounded-full bg-base-300 border-2 border-base-300 flex items-center justify-center z-20"><span class="display-font text-sm text-base-content/20">17</span></div>
-                <div class="flex-1 bg-base-200 border border-base-300/30 rounded-xl px-4 py-3"><div class="text-[10px] font-bold text-base-content/25 uppercase tracking-widest mb-0.5">Day 17</div><div class="font-semibold text-sm text-base-content/30">Dead Hang</div></div>
+              <div class="path-day-btn relative flex items-center gap-4 py-2 cursor-pointer group" onclick="openDay(13,'Rest & Reflect','Week 2')">
+                <div class="path-node absolute -left-8 sm:-left-10 w-9 h-9 rounded-full bg-base-300 border-2 border-base-300 flex items-center justify-center shrink-0 z-20">
+                  <span class="display-font text-base-content/30 text-sm leading-none">17</span>
+                </div>
+                <div class="flex-1 bg-base-200 border border-base-300/40 rounded-xl px-4 py-3 flex items-center justify-between">
+                  <div>
+                    <div class="text-[10px] font-bold text-base-content/30 uppercase tracking-widest mb-0.5">Day 17</div>
+                    <div class="font-semibold text-sm text-base-content/40">Rest &amp; Reflect</div>
+                  </div>
+                  <svg class="w-4 h-4 text-base-content/20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                </div>
               </div>
-              <div class="relative flex items-center gap-4 py-2">
-                <div class="absolute -left-8 sm:-left-10 w-9 h-9 rounded-full bg-base-300 border-2 border-base-300 flex items-center justify-center z-20"><span class="display-font text-sm text-base-content/20">18</span></div>
-                <div class="flex-1 bg-base-200 border border-base-300/30 rounded-xl px-4 py-3"><div class="text-[10px] font-bold text-base-content/25 uppercase tracking-widest mb-0.5">Day 18</div><div class="font-semibold text-sm text-base-content/30">Negatives</div></div>
+              <div class="path-day-btn relative flex items-center gap-4 py-2 cursor-pointer group" onclick="openDay(13,'Rest & Reflect','Week 2')">
+                <div class="path-node absolute -left-8 sm:-left-10 w-9 h-9 rounded-full bg-base-300 border-2 border-base-300 flex items-center justify-center shrink-0 z-20">
+                  <span class="display-font text-base-content/30 text-sm leading-none">18</span>
+                </div>
+                <div class="flex-1 bg-base-200 border border-base-300/40 rounded-xl px-4 py-3 flex items-center justify-between">
+                  <div>
+                    <div class="text-[10px] font-bold text-base-content/30 uppercase tracking-widest mb-0.5">Day 18</div>
+                    <div class="font-semibold text-sm text-base-content/40">Rest &amp; Reflect</div>
+                  </div>
+                  <svg class="w-4 h-4 text-base-content/20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                </div>
               </div>
-              <div class="relative flex items-center gap-4 py-2">
-                <div class="absolute -left-8 sm:-left-10 w-9 h-9 rounded-full bg-base-300 border-2 border-base-300 flex items-center justify-center z-20"><span class="display-font text-sm text-base-content/20">19</span></div>
-                <div class="flex-1 bg-base-200 border border-base-300/30 rounded-xl px-4 py-3"><div class="text-[10px] font-bold text-base-content/25 uppercase tracking-widest mb-0.5">Day 19</div><div class="font-semibold text-sm text-base-content/30">Assisted Pull</div></div>
+              <div class="path-day-btn relative flex items-center gap-4 py-2 cursor-pointer group" onclick="openDay(13,'Rest & Reflect','Week 2')">
+                <div class="path-node absolute -left-8 sm:-left-10 w-9 h-9 rounded-full bg-base-300 border-2 border-base-300 flex items-center justify-center shrink-0 z-20">
+                  <span class="display-font text-base-content/30 text-sm leading-none">19</span>
+                </div>
+                <div class="flex-1 bg-base-200 border border-base-300/40 rounded-xl px-4 py-3 flex items-center justify-between">
+                  <div>
+                    <div class="text-[10px] font-bold text-base-content/30 uppercase tracking-widest mb-0.5">Day 19</div>
+                    <div class="font-semibold text-sm text-base-content/40">Rest &amp; Reflect</div>
+                  </div>
+                  <svg class="w-4 h-4 text-base-content/20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                </div>
               </div>
-              <div class="relative flex items-center gap-4 py-2">
-                <div class="absolute -left-8 sm:-left-10 w-9 h-9 rounded-full bg-base-300 border-2 border-base-300 flex items-center justify-center z-20"><span class="display-font text-sm text-base-content/20">20</span></div>
-                <div class="flex-1 bg-base-200 border border-base-300/30 rounded-xl px-4 py-3"><div class="text-[10px] font-bold text-base-content/25 uppercase tracking-widest mb-0.5">Day 20</div><div class="font-semibold text-sm text-base-content/30">Upper Back Strength</div></div>
+              <div class="path-day-btn relative flex items-center gap-4 py-2 cursor-pointer group" onclick="openDay(13,'Rest & Reflect','Week 2')">
+                <div class="path-node absolute -left-8 sm:-left-10 w-9 h-9 rounded-full bg-base-300 border-2 border-base-300 flex items-center justify-center shrink-0 z-20">
+                  <span class="display-font text-base-content/30 text-sm leading-none">20</span>
+                </div>
+                <div class="flex-1 bg-base-200 border border-base-300/40 rounded-xl px-4 py-3 flex items-center justify-between">
+                  <div>
+                    <div class="text-[10px] font-bold text-base-content/30 uppercase tracking-widest mb-0.5">Day 20</div>
+                    <div class="font-semibold text-sm text-base-content/40">Rest &amp; Reflect</div>
+                  </div>
+                  <svg class="w-4 h-4 text-base-content/20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                </div>
               </div>
               <!-- Milestone 21 -->
-              <div class="relative flex items-center gap-4 py-2">
-                <div class="absolute -left-8 sm:-left-10 w-9 h-9 rounded-xl flex items-center justify-center z-20 border-2" style="border-color:oklch(72% 0.2 170 / 0.25); background:oklch(72% 0.2 170 / 0.05);">
-                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="oklch(72% 0.2 170 / 0.3)" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+              <div class="path-day-btn relative flex items-center gap-4 py-2 cursor-pointer group" onclick="openDay(14,'Week 2 Boss','Week 2')">
+                <div class="path-node absolute -left-8 sm:-left-10 w-9 h-9 rounded-xl flex items-center justify-center shrink-0 z-20 border-2" style="border-color: oklch(72% 0.2 170 / 0.4); background: oklch(72% 0.2 170 / 0.08);">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="oklch(72% 0.2 170 / 0.5)" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
                 </div>
-                <div class="flex-1 rounded-xl px-4 py-3 border border-base-300/20" style="background:oklch(72% 0.2 170 / 0.03);">
-                  <div class="text-[10px] font-bold text-accent/30 uppercase tracking-widest mb-0.5">★ Milestone · Day 21</div>
-                  <div class="font-bold text-sm text-base-content/30">Week 3 Boss</div>
+                <div class="flex-1 rounded-xl px-4 py-4 flex items-center justify-between border border-accent/20" style="background: oklch(72% 0.2 170 / 0.05);">
+                  <div>
+                    <div class="text-[10px] font-bold text-accent/50 uppercase tracking-widest mb-0.5">★ Milestone · Day 21</div>
+                    <div class="font-bold text-base text-base-content/40">Week 3 Boss</div>
+                    <div class="text-xs text-base-content/30 mt-0.5">Complete week 3 to unlock</div>
+                  </div>
+                  <svg class="w-4 h-4 text-accent/30" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
                 </div>
               </div>
             </div>

@@ -7,31 +7,33 @@ logger = logging.getLogger(__name__)
 
 auth = Blueprint('auth', __name__)
 
-@auth.route('/signup', methods=['POST'])
+@auth.route('/signup', methods=['GET', 'POST'])
 def signup():
-    email = request.form.get('signupemail')
-    password1 = request.form.get('signuppassword1')
-    password2 = request.form.get('signuppassword2')
-    name = email.split("@")[0]
+    if request.method == 'POST':
+        email = request.form.get('signupemail')
+        password1 = request.form.get('signuppassword1')
+        #password2 = request.form.get('signuppassword2')
+        name = email.split("@")[0]
 
-    user = User.query.filter_by(email=email).first()
-    if user:
-        return render_template('login.html', error='An account with this email already exists.')
+        user = User.query.filter_by(email=email).first()
+        if user:
+            return render_template('signup.html', error='An account with this email already exists.')
 
-    if password1 != password2:
-        return render_template('login.html', error='Passwords do not match.')
+        '''if password1 != password2:
+            return render_template('signup.html', error='Passwords do not match.')'''
 
-    new_user = User(email=email, name=name)
-    new_user.set_password(password1)
-    try:
-        db.session.add(new_user)
-        db.session.commit()
-        login_user(new_user)
-        return redirect('/')
-    except Exception as e:
-        db.session.rollback()
-        logger.error(f"Signup error: {e}")
-        return render_template('login.html', error='An error occurred. Please try again later.')
+        new_user = User(email=email, name=name)
+        new_user.set_password(password1)
+        try:
+            db.session.add(new_user)
+            db.session.commit()
+            login_user(new_user)
+            return render_template("theapp.html")
+        except Exception as e:
+            db.session.rollback()
+            logger.error(f"Signup error: {e}")
+            return render_template('signup.html', error='An error occurred. Please try again later.')
+    return render_template('signup.html')
 
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
@@ -46,3 +48,7 @@ def login():
         else:
             return render_template('login.html', error="Invalid email or password")
     return render_template('login.html')
+
+@auth.route('/survey')
+def survey():
+    return render_template("survey.html")
