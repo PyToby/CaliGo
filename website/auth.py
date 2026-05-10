@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, url_for
+from flask import Blueprint, render_template, request, redirect, url_for, session
 import logging
 from .models import User, db
 from flask_login import login_user, logout_user, login_required, current_user
@@ -10,8 +10,8 @@ auth = Blueprint('auth', __name__)
 @auth.route('/signup', methods=['GET', 'POST'])
 def signup():
     if request.method == 'POST':
-        email = request.form.get('signupemail')
-        password1 = request.form.get('signuppassword1')
+        email = request.form.get('email')
+        password1 = request.form.get('password')
         #password2 = request.form.get('signuppassword2')
         name = email.split("@")[0]
 
@@ -22,13 +22,24 @@ def signup():
         '''if password1 != password2:
             return render_template('signup.html', error='Passwords do not match.')'''
 
-        new_user = User(email=email, name=name)
+        onboarding = session.pop('onboarding')
+        new_user = User(
+            email=email, 
+            name=name, 
+            level=onboarding['level'],
+            pushups=onboarding['pushups'],
+            pullups=onboarding['pullups'],
+            dips=onboarding['dips'],
+            skills=onboarding['skills'],   # SQLAlchemy JSON column handles the list natively
+            goal=onboarding['goal'],
+        )     
         new_user.set_password(password1)
         try:
             db.session.add(new_user)
             db.session.commit()
             login_user(new_user)
-            return render_template("theapp.html")
+            logger.error("SIgned up")
+            return redirect(url_for("view.app"))
         except Exception as e:
             db.session.rollback()
             logger.error(f"Signup error: {e}")
@@ -44,7 +55,7 @@ def login():
         user = User.query.filter_by(email=email).first()
         if user and user.check_password(password):
             login_user(user)
-            return redirect(url_for('view.home'))
+            return redirect(url_for('view.app'))
         else:
             return render_template('login.html', error="Invalid email or password")
     return render_template('login.html')
@@ -52,6 +63,13 @@ def login():
 @auth.route('/onboarding', methods=['GET', 'POST'])
 def onboarding():
     if request.method == 'POST':
-        print('success')
-        return render_template("/auth/signup")
+        session['onboarding'] = {
+            "level": request.form.get("level"),
+            'pushups':   request.form.get('pushups', 0, type=int),
+            'pullups':   request.form.get('pullups', 0, type=int),
+            'dips':      request.form.get('dips', 0, type=int),
+            'skills':    request.form.getlist('skills'),
+            'goal':      request.form.get('goal'),
+        }
+        return render_template("signup.html")
     return render_template("survey.html")
