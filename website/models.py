@@ -11,7 +11,14 @@ class User(UserMixin, db.Model):
     password = db.Column(db.String(256), nullable=False)
     pfp = db.Column(db.String(300), nullable=True)
     name = db.Column(db.String(100), nullable=True)
+    skills = db.Column(db.String(), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    level = db.Column(db.String(20))
+    pushups = db.Column(db.Integer)
+    pullups = db.Column(db.Integer)
+    dips = db.Column(db.Integer)
+    skills = db.Column(db.JSON)   # list stored as JSON
+    goal = db.Column(db.String(20))
 
     def check_password(self, password):
         if not self.password:
