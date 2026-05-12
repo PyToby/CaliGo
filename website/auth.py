@@ -38,7 +38,7 @@ def signup():
             db.session.add(new_user)
             db.session.commit()
             login_user(new_user)
-            logger.error("SIgned up")
+            logger.info("User signed up successfully")
             return redirect(url_for("view.app"))
         except Exception as e:
             db.session.rollback()
@@ -65,11 +65,11 @@ def onboarding():
     if request.method == 'POST':
         session['onboarding'] = {
             "level": request.form.get("level"),
-            'pushups':   request.form.get('pushups', 0, type=int),
-            'pullups':   request.form.get('pullups', 0, type=int),
-            'dips':      request.form.get('dips', 0, type=int),
-            'skills':    request.form.getlist('skills'),
-            'goal':      request.form.get('goal'),
+            'pushups': request.form.get('pushups', 0, type=int),
+            'pullups': request.form.get('pullups', 0, type=int),
+            'dips': request.form.get('dips', 0, type=int),
+            'skills': request.form.getlist('skills'),
+            'goal': request.form.get('goal'),
         }
         return render_template("signup.html")
     return render_template("survey.html")

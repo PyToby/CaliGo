@@ -27,7 +27,7 @@
         <div class="card-body p-8 md:p-10">
 
           <!-- ======= STEP 1: Level ======= -->
-          <div class="survey-step" id="step-1">
+          <div class="survey-step scroll-reveal" id="step-1">
             <div class="badge badge-primary badge-outline badge-sm font-semibold mb-4">STEP 1 / 6</div>
             <h2 class="display-font text-4xl md:text-5xl text-base-content leading-none mb-2">YOUR LEVEL</h2>
             <p class="text-base-content/55 mb-8">Be honest — this shapes everything. You can always change it later.</p>
@@ -98,7 +98,7 @@
           </div>
 
           <!-- ======= STEP 2: Push-ups ======= -->
-          <div class="survey-step hidden" id="step-2">
+          <div class="survey-step hidden scroll-reveal" id="step-2">
             <div class="badge badge-primary badge-outline badge-sm font-semibold mb-4">STEP 2 / 6</div>
             <h2 class="display-font text-4xl md:text-5xl text-base-content leading-none mb-2">MAX PUSH-UPS</h2>
             <p class="text-base-content/55 mb-8">How many clean push-ups can you do in one go? Full range, chest to floor.</p>
@@ -131,7 +131,7 @@
           </div>
 
           <!-- ======= STEP 3: Pull-ups & Dips ======= -->
-          <div class="survey-step hidden" id="step-3">
+          <div class="survey-step hidden scroll-reveal" id="step-3">
             <div class="badge badge-primary badge-outline badge-sm font-semibold mb-4">STEP 3 / 6</div>
             <h2 class="display-font text-4xl md:text-5xl text-base-content leading-none mb-2">PULLING & DIPS</h2>
             <p class="text-base-content/55 mb-8">Max reps in one clean set. Dead hang start for pull-ups, full depth for dips.</p>
@@ -169,7 +169,7 @@
           </div>
 
           <!-- ======= STEP 4: Skills ======= -->
-          <div class="survey-step hidden" id="step-4">
+          <div class="survey-step hidden scroll-reveal" id="step-4">
             <div class="badge badge-primary badge-outline badge-sm font-semibold mb-4">STEP 4 / 6</div>
             <h2 class="display-font text-4xl md:text-5xl text-base-content leading-none mb-2">YOUR SKILLS</h2>
             <p class="text-base-content/55 mb-6">Check everything you can do <span class="font-semibold text-base-content">right now</span> with decent form. No ego — be real.</p>
@@ -230,7 +230,7 @@
           </div>
 
           <!-- ======= STEP 5: Goals & Frequency ======= -->
-          <div class="survey-step hidden" id="step-5">
+          <div class="survey-step hidden scroll-reveal" id="step-5">
             <div class="badge badge-primary badge-outline badge-sm font-semibold mb-4">STEP 5 / 6</div>
             <h2 class="display-font text-4xl md:text-5xl text-base-content leading-none mb-2">TRAINING PLAN</h2>
             <p class="text-base-content/55 mb-8">Tell us your goal and how often you can train. We'll plan around your life.</p>
@@ -289,7 +289,7 @@
     </form>
 
     <p class="text-center text-sm text-base-content/45 mt-6">
-      Already have an account? <a href="/auth/login" class="text-primary font-semibold hover:underline">Log in</a>
+      Already have an account? <a href="{{ url_for('auth.login') }}" class="text-primary font-semibold hover:underline">Log in</a>
     </p>
 
   </div>

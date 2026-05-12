@@ -14,51 +14,72 @@
 
 <!-- ========== LAYOUT SHELL ========== -->
 <div class="flex h-screen overflow-hidden">
-
   <!-- ===== LEFT SIDEBAR ===== -->
-  <aside id="left-sidebar"
-         style="width:216px; min-width:216px;"
-         class="flex flex-col bg-base-100 z-50 overflow-hidden shrink-0">
+<aside id="left-sidebar"
+       class="flex flex-col bg-base-100 border-r border-base-300/40 z-50 overflow-hidden shrink-0 transition-transform duration-200
+              fixed inset-y-0 left-0 -translate-x-full
+              lg:relative lg:translate-x-0"
+       style="width:216px; min-width:216px;">
 
-    <!-- Logo -->
-     <a href="{{ url_for('view.app') }}">
-    <div class="flex items-center gap-2.5 px-4 py-5 ">
-      <div class="w-9 h-9 shrink-0 rounded-xl bg-primary flex items-center justify-center">
+  <!-- Logo -->
+  <a href="{{ url_for('view.app') }}">
+    <div class="flex items-center gap-2.5 px-4 py-[14px] border-b border-base-300/40">
+      <div class="w-8 h-8 shrink-0 rounded-lg bg-primary flex items-center justify-center">
         <svg viewBox="0 0 24 24" class="w-5 h-5 fill-primary-content">
-          <!--<path d="M13.5 3.5C13.5 4.881 12.381 6 11 6s-2.5-1.119-2.5-2.5S9.619 1 11 1s2.5 1.119 2.5 2.5zm5 5.5a2 2 0 100-4 2 2 0 000 4zm-13 0a2 2 0 100-4 2 2 0 000 4zm13.5 2.5c0 .552-.448 1-1 1h-1.5l-1.5 7h-2l-1.5-7H11l-1.5 7h-2l-1.5-7H4.5c-.552 0-1-.448-1-1V10c0-.552.448-1 1-1h15c.552 0 1 .448 1 1v1.5z"/>-->
+          <!--<path d="..."/>-->
         </svg>
       </div>
-      <span class="display-font sidebar-text text-2xl text-base-content tracking-widest">CALIGO</span>
+      <span class="sidebar-text display-font text-2xl text-base-content tracking-widest">CALIGO</span>
     </div>
+  </a>
+
+  <!-- Nav links -->
+  <nav class="flex-1 flex flex-col gap-1 p-3 overflow-hidden">
+    <a href="#" class="flex items-center gap-2.5 px-3 py-2 rounded-full text-sm font-medium bg-base-200 text-base-content transition-colors hover:bg-base-200">
+      <svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+      </svg>
+      <span class="sidebar-text">Dashboard</span>
     </a>
-    <!-- Nav links -->
-    <nav class="flex-1 flex flex-col gap-1 p-3 overflow-hidden">
-      <a href="#" class="sidebar-nav-item active">
-        <svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
-        </svg>
-        <span class="sidebar-text">Dashboard</span>
-      </a>
-      <a href="#" class="sidebar-nav-item">
-        <svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-        </svg>
-        <span class="sidebar-text">Progress</span>
-      </a>
-    </nav>
+    <a href="#" class="flex items-center gap-2.5 px-3 py-2 rounded-full text-sm font-medium text-base-content/60 transition-colors hover:bg-base-200 hover:text-base-content">
+      <svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+      </svg>
+      <span class="sidebar-text">Progress</span>
+    </a>
+  </nav>
 
-    <!-- User block -->
-    <div class="p-3 border-t border-base-300/40">
-      <div class="flex items-center gap-2.5 px-2 py-2 rounded-xl cursor-pointer hover:bg-primary/8 transition-colors">
-        <div class="w-9 h-9 shrink-0 rounded-full bg-primary/15 flex items-center justify-center font-bold text-sm text-primary">JD</div>
-        <div class="sidebar-text overflow-hidden">
-          <div class="font-semibold text-sm truncate">Jan Dvořák</div>
-          <div class="text-xs text-base-content/40">Free plan</div>
-        </div>
+  <!-- User block -->
+  <div class="p-3 border-t border-base-300/40">
+    <div class="flex items-center gap-2.5 px-2 py-2 rounded-full cursor-pointer hover:bg-base-200 transition-colors">
+      <div class="w-8 h-8 shrink-0 rounded-full bg-primary/15 flex items-center justify-center font-bold text-sm text-primary">JD</div>
+      <div class="sidebar-text overflow-hidden">
+        <div class="font-semibold text-sm truncate">Jan Dvořák</div>
+        <div class="text-xs text-base-content/40">Free plan</div>
       </div>
     </div>
-  </aside>
+  </div>
+</aside>
 
+<!-- Mobile sidebar backdrop -->
+<div id="sidebar-backdrop"
+     class="fixed inset-0 bg-black/30 z-40 hidden lg:hidden"
+     onclick="setSidebar(false)"></div>
+
+  <!-- Mobile top bar (hidden on lg+) -->
+<div class="lg:hidden flex items-center gap-2 px-4 h-14 bg-base-100/80 backdrop-blur-md border-b border-base-300/40 shrink-0">
+  <button onclick="setSidebar(true)" class="btn btn-ghost btn-circle btn-sm" aria-label="Open sidebar">
+    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+    </svg>
+  </button>
+  <a href="{{ url_for('view.app') }}" class="flex items-center gap-2">
+    <div class="w-7 h-7 rounded-lg bg-primary flex items-center justify-center">
+      <svg viewBox="0 0 24 24" class="w-4 h-4 fill-primary-content"><!--<path d="..."/>--></svg>
+    </div>
+    <span class="display-font text-xl text-base-content tracking-widest">CALIGO</span>
+  </a>
+</div>
   <!-- ===== MAIN ===== -->
   <main class="flex-1 flex flex-col min-w-0 overflow-hidden">
 
@@ -624,20 +645,36 @@
   function toggleTheme() { isDark = !isDark; applyTheme(isDark); }
 
   // ----- Sidebar toggle -----
-  let sidebarOpen = true;
-  function toggleSidebar() {
-    sidebarOpen = !sidebarOpen;
-    const sb = document.getElementById('left-sidebar');
-    sb.classList.toggle('open', sidebarOpen);
-    // On desktop collapse to icon-only by shrinking width
-    if (window.innerWidth >= 768) {
-      sb.style.width = sidebarOpen ? '216px' : '60px';
-      sb.style.minWidth = sidebarOpen ? '216px' : '60px';
-      sb.querySelectorAll('.sidebar-text').forEach(el => {
-        el.style.display = sidebarOpen ? 'inline' : 'none';
-      });
+  let sidebarOpen = false;
+  const sidebar = document.getElementById('left-sidebar');
+  const backdrop = document.getElementById('sidebar-backdrop');
+
+  function setSidebar(open) {
+    sidebarOpen = open;
+    if (open) {
+      sidebar.classList.remove('-translate-x-full');
+      backdrop.classList.remove('hidden');
+    } else {
+      sidebar.classList.add('-translate-x-full');
+      backdrop.classList.add('hidden');
     }
   }
+
+  function toggleSidebar() { setSidebar(!sidebarOpen); }
+
+  // Init: sidebar always open on desktop, closed on mobile
+  window.addEventListener('DOMContentLoaded', () => {
+    if (window.innerWidth >= 1024) {
+      setSidebar(true);
+    } else {
+      sidebar.style.transform = 'translateX(-100%)';
+      sidebar.style.position = 'fixed';
+      sidebar.style.top = '0';
+      sidebar.style.left = '0';
+      sidebar.style.height = '100%';
+      sidebar.style.zIndex = '100';
+    }
+  });
 
   // ----- Day modal -----
   function openDay(num, title, week) {

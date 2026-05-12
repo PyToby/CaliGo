@@ -50,8 +50,12 @@
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
         </svg>
       </button>
-      <a href="{{ url_for('auth.login') }}" class="btn btn-ghost btn-sm font-medium">Log in</a>
-      <a href="{{ url_for('auth.onboarding') }}" class="btn btn-primary btn-sm font-semibold shadow-sm">Get Started Free</a>
+      {% if current_user.is_anonymous %}
+        <a href="{{ url_for('auth.login') }}" class="btn btn-ghost btn-sm font-medium">Log in</a>
+        <a href="{{ url_for('auth.onboarding') }}" class="btn btn-primary btn-sm font-semibold shadow-sm">Get Started Free</a>
+      {% else %}
+        <a href="{{ url_for('view.app') }}" class="btn btn-primary btn-sm font-semibold shadow-sm">Go to app!</a>
+      {% endif %}
     </div>
   </div>
   {% block content %}{% endblock %}
